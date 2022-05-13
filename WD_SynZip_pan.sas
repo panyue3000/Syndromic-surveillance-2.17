@@ -13,6 +13,46 @@
 Libname SS "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SSLibrary";
 
 
+/*This is bringing in the May 2022 data*/
+
+data SSZipApr2022;
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20220505.csv" 
+
+delimiter = ',' MISSOVER DSD firstobs=2;
+	informat Patient_Zip_Code $50. ;
+	informat Town $50. ;
+	informat MeasureID 32. ;
+	informat Numerator 32. ;
+	informat Denominator 32. ;
+	informat Month 32. ;
+	informat Year 32. ;
+	informat IsSuppressed 32. ;
+	
+
+input 
+	Patient_Zip_Code $
+	Town $
+	MeasureID
+	Numerator
+	Denominator
+	Month
+	Year
+	IsSuppressed
+;
+
+data SSZipAPr2022;
+	retain Patient_Zip_Code Town MeasureID Numerator Denominator Month Year IsSuppressed;
+set SSZipApr2022;
+	format MeasureID BEST32. ;
+	format Numerator BEST32. ;
+	format Denominator BEST32. ;
+	format Month BEST32. ;
+	format Year BEST32. ;
+	format IsSuppressed BEST32. ;
+
+RUN;
+
+
 /*This is bringing in the April 2022 data*/
 
 data SSZipMar2022;
@@ -672,7 +712,7 @@ QUIT;
 
 data SSZip;
 set  SSZip2019 SSZip2020 SSZipJan2021 SSZipFeb2021 SSZipMar2021 SSZipApr2021 SSZipMay2021 SSZipJun2021 SSZipJul2021 SSZipAug2021 SSZipSep2021
-SSZipOct2021 SSZipNov2021 SSZipDec2021 SSZipJan2022 SSZipFeb2022 SSZipMar2022;
+SSZipOct2021 SSZipNov2021 SSZipDec2021 SSZipJan2022 SSZipFeb2022 SSZipMar2022 SSZipApr2022;
 run;
 
 * Sort in order to get means by;
@@ -855,27 +895,27 @@ run;
 
 
 *  Combine the two data files;
-data SYN_CDM_04062022;
+data SYN_CDM_05052022;
 Retain ReporterId MeasureId Numerator Denominator Month Quarter Year IsSuppressed Notes Stratification;
 set Full SSpartZip;
 run;
 
-proc sort data = SYN_CDM_04062022;
+proc sort data = SYN_CDM_05052022;
 by reporterid year month;
 run;
 
 *Drop full counties for RTI transfer;
 
-data ss.RTI_SYN_04062022;
+data ss.RTI_SYN_05052022;
 Retain ReporterId MeasureId Numerator Denominator Month Quarter Year IsSuppressed Notes Stratification;
-set SYN_CDM_04062022;
+set SYN_CDM_05052022;
 if Reporterid not in ('0368','0369','0370');
 run;
 
-PROC EXPORT DATA= SS.RTI_SYN_04062022 
+PROC EXPORT DATA= SS.RTI_SYN_05052022 
             OUTFILE= "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\
 Data and Documentation\DATA Downloads\1 1 Pending\SynSurv_HCS_Deliveries
-\RTI_SYN_04062022.csv" 
+\RTI_SYN_05052022.csv" 
             DBMS=CSV REPLACE;
      PUTNAMES=YES;
 RUN;
