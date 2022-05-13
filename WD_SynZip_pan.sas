@@ -559,7 +559,7 @@ QUIT;
 
 /*This is bringing in the February 2021 data*/
 data SSZipFeb2021;
-infile 'NYSDOH_SYNZip_20210312.csv'
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210312.csv"
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;

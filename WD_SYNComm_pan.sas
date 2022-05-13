@@ -9,9 +9,48 @@
 synsurveillance community data. */
 
 
+
+
+%let wfd14=panyue;
+/*remember to change it back to &wfd14*/
+
+
+/*This data step pulls in the May 2022 Data*/
+data SScomApr2022;
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20220505.csv" 
+delimiter = ',' MISSOVER DSD firstobs=2;
+	informat ReporterID $50. ;
+	informat MeasureID 32. ;
+	informat Numerator 32. ;
+	informat Denominator 32. ;
+	informat Month 32. ;
+	informat Year 32. ;
+	informat IsSuppressed 32. ;
+
+input 
+	ReporterID $
+	MeasureID
+	Numerator
+	Denominator
+	Month
+	Year
+	IsSuppressed
+;
+
+data SScomApr2022;
+	retain ReporterID MeasureID Numerator Denominator Month Year IsSuppressed;
+set SScomApr2022;
+	format MeasureID BEST32. ;
+	format Numerator BEST32. ;
+	format Denominator BEST32. ;
+	format Month BEST32. ;
+	format Year BEST32. ;
+	format IsSuppressed BEST32. ;
+RUN;
+
 /*This data step pulls in the April 2022 Data*/
 data SScomMar2022;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20220406.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20220406.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -45,7 +84,7 @@ RUN;
 
 /*This data step pulls in the January 2022 Data*/
 data SScomFeb2022;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20220303.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20220303.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -79,7 +118,7 @@ RUN;
 
 /*This data step pulls in the January 2022 Data*/
 data SScomJan2022;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20220208.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20220208.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -115,7 +154,7 @@ RUN;
 
 data SScomDec2021;
 
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20220105.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20220105.csv" 
 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
@@ -151,7 +190,7 @@ RUN;
 /*This data step pulls in the November 2021 Data*/
 
 data SScomNov2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20211206.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20211206.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -185,7 +224,7 @@ RUN;
 /*This data step pulls in the October 2021 Data*/
 
 data SScomOct2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20211111.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20211111.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -220,7 +259,7 @@ RUN;
 /*This data step pulls in the September 2021 Data*/
 	
 data SScomSep2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20211029.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20211029.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -258,7 +297,7 @@ QUIT;
 /*This data step pulls in the August 2021 Data*/
 
 data SScomAug2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210903.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210903.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -294,7 +333,7 @@ QUIT;
 
 /*This data step pulls in the July 2021 Data*/
 data SScomJul2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210817.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210817.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -331,7 +370,7 @@ QUIT;
 /*This data step pulls in June 2021 Data */
 data SScomJun2021;
 
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210722.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210722.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -370,7 +409,7 @@ data SScomMay2021;
 /* 
 	SPECIFY THE PATH TO YOUR DOWNLOADED CSV BELOW:
 */
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210618.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210618.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -393,7 +432,7 @@ input
 
 /*This data step pulls in April 2021 Data */
 data SScomApr2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210514.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210514.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -429,7 +468,7 @@ QUIT;
 	
 /*This data step pulls in March 2021 Data */
 data SScomMar2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210422.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210422.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -465,7 +504,7 @@ QUIT;
 
 /*This data step pulls in February 2021 Data */
 data SScomFeb2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210312.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210312.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -501,7 +540,7 @@ QUIT;
 	
 /*This data step pulls in January 2021 Data */
 data SScomJan2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210211.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210211.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterId $50. ;
 	informat MeasureId 32. ;
@@ -538,7 +577,7 @@ QUIT;
 
 /*This data step pulls in the historical 2020 Annual Data (12 months) */
 data SScom2020;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210111.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210111.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -574,7 +613,7 @@ QUIT;
 
 /*This data step is pulling in the historical 2019 Annual Data (12 months)*/
 data SScom2019;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210115.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvCom\NYSDOH_SYNComm_20210115.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat ReporterID $50. ;
 	informat MeasureID 32. ;
@@ -613,7 +652,8 @@ QUIT;
 
 /*In this section we are merging all the prior data files*/
 data SSCom;
-set SScomMar2022 SScomFeb2022 SScomJan2022 SScomDec2021 SScomNov2021 SScomOct2021 SScomSep2021 SScomAug2021 SScomJul2021 SScomJun2021 SScomMay2021 SScomApr2021 SScomMar2021 SScomFeb2021 SScomJan2021 SScom2020 SScom2019;
+set SScomApr2022 SScomMar2022 SScomFeb2022 SScomJan2022 SScomDec2021 SScomNov2021 SScomOct2021 SScomSep2021 
+SScomAug2021 SScomJul2021 SScomJun2021 SScomMay2021 SScomApr2021 SScomMar2021 SScomFeb2021 SScomJan2021 SScom2020 SScom2019;
 Notes='';
 Stratification='';
 run;
@@ -643,7 +683,7 @@ proc freq data=sscom;
 tables measureid*year*month;
 run;
 
-Libname SS 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SSLibrary';
+Libname SS "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SSLibrary";
 
 data ss.sscom;
 set sscom;
