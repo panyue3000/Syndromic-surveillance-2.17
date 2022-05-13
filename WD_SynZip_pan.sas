@@ -6,13 +6,17 @@
    2021 updates, add the new file at the top and add it to the merge file below. */
 
 
-Libname SS 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SSLibrary';
+%let wfd14=panyue;
+/*remember to change it back to wfd14*/
+
+
+Libname SS "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SSLibrary";
 
 
 /*This is bringing in the April 2022 data*/
 
 data SSZipMar2022;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20220406.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20220406.csv" 
 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
@@ -51,7 +55,7 @@ RUN;
 /*This is bringing in the March 2022 data*/
 
 data SSZipFeb2022;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20220303.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20220303.csv" 
 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
@@ -88,7 +92,7 @@ set SSZipFeb2022;
 RUN;
 
 data SSZipJan2022;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20220208.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20220208.csv" 
 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
@@ -127,7 +131,7 @@ RUN;
 /*This is bringing in the December 2021 data*/
 
 data SSZipDec2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20220105.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20220105.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -164,7 +168,7 @@ RUN;
 /*This is bringing in the November 2021 data*/
 
 data SSZipNov2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20211206.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20211206.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -201,7 +205,7 @@ RUN;
 /*This is bringing in the October 2021 data*/
 
 data SSZipOct2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20211111.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20211111.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -238,7 +242,7 @@ RUN;
 
 /*This is bringing in the September 2021 data*/
 data SSZipSep2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20211029.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20211029.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -277,7 +281,7 @@ QUIT;
 
 /*This is bringing in the August 2021 data*/
 data SSZipAug2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210903.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210903.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -316,7 +320,7 @@ QUIT;
 /*This is bringing in the July 2021 data*/
 data SSZipJul2021;
 
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210817.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210817.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -358,7 +362,7 @@ QUIT;
 /*This is bringing in the June 2021 data*/
 data SSZipJun2021;
 
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210722.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210722.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -399,7 +403,7 @@ QUIT;
 /*This is bringing in the May 2021 data*/
 
 data SSZipMay2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210618.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210618.csv" 
 
 delimiter = ',' MISSOVER DSD firstobs=2;
 
@@ -440,7 +444,7 @@ QUIT;
 
 /*This is bringing in the April 2021 data*/
 data SSZipApr2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210514.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210514.csv" 
 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
@@ -478,7 +482,7 @@ QUIT;
 	
 /*This is bringing in the March 2021 data*/
 data SSZipMar2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210422.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210422.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -515,7 +519,7 @@ QUIT;
 
 /*This is bringing in the February 2021 data*/
 data SSZipFeb2021;
-infile 'NYSDOH_SYNZip_20210312.csv' 
+infile 'NYSDOH_SYNZip_20210312.csv'
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -552,7 +556,7 @@ QUIT;
 	
 /*This is bringing in the January 2021 data */
 data SSZipJan2021;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210211.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210211.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -589,7 +593,7 @@ QUIT;
 
 /*This is bringing in the historical 2020 Annual data (12 months)*/
 data SSZip2020;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210111.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210111.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -627,7 +631,7 @@ QUIT;
 
 /*This is bringing in the historical 2019 Annual data (12 months)*/
 data SSZip2019;
-infile 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210115.csv' 
+infile "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and Documentation\DATA Downloads\1 1 Pending\SynSurvZip\NYSDOH_SYNZip_20210115.csv" 
 delimiter = ',' MISSOVER DSD firstobs=2;
 	informat Patient_Zip_Code $50. ;
 	informat Town $50. ;
@@ -869,7 +873,7 @@ if Reporterid not in ('0368','0369','0370');
 run;
 
 PROC EXPORT DATA= SS.RTI_SYN_04062022 
-            OUTFILE= "C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\
+            OUTFILE= "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\
 Data and Documentation\DATA Downloads\1 1 Pending\SynSurv_HCS_Deliveries
 \RTI_SYN_04062022.csv" 
             DBMS=CSV REPLACE;
@@ -887,8 +891,8 @@ RUN;
 /*   /*  data _null_;*/
 /*     %let _EFIERR_ = 0; /* set the ERROR detection macro variable */*/
 /*     %let _EFIREC_ = 0;     /* clear export record count macro variable */*/
-/*     file 'C:\Users\wfd14\Box\1 Healing Communities\DATA_NYS\Data and*/
-/* Documentation\DATA Downloads\1 1 Pending\SynSurv_HCS_Deliveries\RTI_SYN_05142021.csv' delimiter=',' DSD DROPOVER*/
+/*     file "C:\Users\&wfd14\Box\1 Healing Communities\DATA_NYS\Data and*/
+/* Documentation\DATA Downloads\1 1 Pending\SynSurv_HCS_Deliveries\RTI_SYN_05142021.csv" delimiter=',' DSD DROPOVER*/
 /* lrecl=32767;*/
 /*     if _n_ = 1 then        /* write column names or labels */*/
 /*      do;*/
